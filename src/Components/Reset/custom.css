@@ -1,0 +1,29 @@
+.CustomContainer{
+    width: 60%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: transparent;
+      position: absolute;
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 1px 3px 5px 2px rgb(0 0 0 / 23%);
+  }
+  .Form{
+    padding: 30px;
+  }
+  .btn{
+    margin-top: 20px;
+    width: 150px;
+    background-color: orangered !important;
+    border: none !important;
+  }
+  .blackTable{
+    background-color: white;
+    
+  }
+  .blackTable td{
+   border: none;
+   padding: 50px 0;
+   font-weight: bold;
+  }

@@ -1,0 +1,36 @@
+.error-message {
+    color: #cc0033;
+    display: inline-block;
+    font-size: 12px;
+    line-height: 15px;
+    width: 600px;
+    margin: 5px 0 0;
+    margin-left: 26%;  }
+
+    @media(max-width: 1270px) {
+        .error-message {
+            margin-left: 26%; 
+            width: 500px;
+        }
+    }
+    @media(max-width: 900px) {
+        .error-message {
+            margin-left: 26%; 
+            width: 400px;
+        }
+    }
+    @media(max-width: 565px) {
+        .error-message {
+            margin-left: 2%; 
+            width: 400px;
+        }
+    }
+    .error-message-custom{
+        color: #cc0033;
+        display: inline-block;
+        font-size: 12px;
+        line-height: 15px;
+        width: 300px;
+        margin: 5px 0 0;
+        margin-left: 2%;
+    }
