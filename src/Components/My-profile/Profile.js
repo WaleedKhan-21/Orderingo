@@ -19,22 +19,22 @@ const Profile = (child) => {
         LastName: yup.string().required('Please Enter your Last Name').nullable(),
         Cellphone: yup.string().required('Please Enter your Cellphone').nullable(),
         IneracEmail: yup.string().required('Please Enter your IneracEmail').nullable(),
-        Homephone: yup.string().required('Please Enter your Homephone').nullable(),
+        // Homephone: yup.string().required('Please Enter your Homephone').nullable(),
         StoreName: yup.string().required('Please Enter your StoreName').nullable(),
-        cooking_experience: yup.string().required('Please Enter your Cooking Experience').nullable(), 
+        // cooking_experience: yup.string().required('Please Enter your Cooking Experience in years').nullable(), 
         secondaryContact:yup.string().required('Please Enter your Secondary Contact').nullable(),
-        addresses:yup.string().required('Required').nullable(),
+        // addresses:yup.string().required('Required').nullable(),
         unitNo:yup.string().required('Required').nullable(),
         province:yup.string().required('Required').nullable(),
         postalCode:yup.string().required('Required').nullable(),
         city:yup.string().required('Required').nullable(),
         secondaryContactsPhone:yup.string().required('Required').nullable(),
         preferred_categories: yup.array().min(1, "preferred_categories are required").required("required"),
-        promotion_type: yup.array().min(1, "promotion_type are required").required("required"),
+        // promotion_type: yup.array().min(1, "promotion_type are required").required("required"),
         // delivery_days: yup.array().min(1, "delivery days are required").required("required"),
         delivers:yup.string().required("One of two is required").nullable(),
         delivers2:yup.string().required("One of two is required").nullable(),
-        sameAsHome:yup.boolean().oneOf([true],'Required'),
+        // sameAsHome:yup.boolean().oneOf([true],'Required'),
         email: yup
         .string()
         .email("Field should contain a valid e-mail")
@@ -74,7 +74,9 @@ const Profile = (child) => {
     useEffect(() => {
       axios.get(`http://localhost:1337/users/${localStorage.getItem('id')}`).then((res) => {
         reset(res.data);
-        console.log(res.data.store)
+        console.log("check",res.data)
+    
+        localStorage.setItem("userName", res.data.FirstName)
         axios.get(`http://localhost:1337/stores/${res?.data?.store?.id}`).then((res) => {
             console.log(res.data)
             reset(res.data)
@@ -112,7 +114,7 @@ const Profile = (child) => {
 
     // setValue([{'username', 'test'}]);
     const handler = async (e) => {
-      
+        const current = new Date();
          console.log("e.VendorCode", e.VendorCode)
          const code = localStorage.getItem("vendorCode")
         const payload = {
@@ -120,16 +122,16 @@ const Profile = (child) => {
             VendorCode: code? code :e.VendorCode,
             username: e.username,
             FirstName: e.FirstName,
-            LastName: e.LastName,
+            lastName: e.LastName,
             email: e.email,
            /* A validation for the password. */
             // password: e.password,
             // confirmPassword: e.confirmPassword,
             Cellphone: e.Cellphone,
             Homephone: e.Homephone,
-            IneracEmail: e.IneracEmail,
+            ineracEmail: e.IneracEmail,
             store: "34",
-            addresses: [
+            Addresses: [
                 e.addresses 
             ],
             provider: 'local',
@@ -138,7 +140,7 @@ const Profile = (child) => {
             confirmed: false,
             blocked: false,
             role: "string",
-            DOB: "string",
+            DOB:`${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`,
             documentsRequired: true,
             user_types: [
                 "string"
@@ -146,8 +148,8 @@ const Profile = (child) => {
             orders: [
                 "string"
             ],
-            created_by: "string",
-            updated_by: "string"
+            created_by: e.FirstName,
+            updated_by: e.FirstName
         }
 console.log (e)
         const storePayload = {

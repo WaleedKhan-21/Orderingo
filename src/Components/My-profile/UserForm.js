@@ -124,15 +124,15 @@ export default function UserForm({ register, onSubmit, errors,control }) {
                         </div>
                         <div class="checkout-form-inputs">
                             <div class="form-group">
-                                <CustomInput id="HomePhone" placeholder="street" errors={errors} register={register} name="addresses" />
+                                <CustomInput id="HomePhone" placeholder="street"  register={register} name="addresses" />
                             </div>
-                            <div class="form-group"> <CustomInput placeholder="Unit No."  errors={errors} register={register} name="unitNo" /></div>
+                            <div class="form-group"> <CustomInput placeholder="Unit No."  register={register} name="unitNo" /></div>
                             <div class="form-group">
-                                <CustomInput placeholder="City" errors={errors} register={register} name="city" />
+                                <CustomInput placeholder="City"  register={register} name="city" />
                             </div>
-                            <div class="form-group"><CustomInput placeholder="Postal Code"  errors={errors} register={register} name="postalCode" /></div>
+                            <div class="form-group"><CustomInput placeholder="Postal Code" register={register} name="postalCode" /></div>
                             <div class="form-group">
-                                <CustomInput placeholder="Province"  errors={errors} register={register} name="province" />
+                                <CustomInput placeholder="Province"   register={register} name="province" />
                             </div>
 
                         </div>
@@ -141,7 +141,7 @@ export default function UserForm({ register, onSubmit, errors,control }) {
                 <div class="mb-3 row">
                     <label for="confirmPassword" class="col-sm-3 col-form-label">Pickup Addres<span>*</span></label>
                     <div class="col-sm-9">
-                        <CheckBox id={'flexCheck2'} labelClass={'form-check-label'} label={'Same as Home Address'} errors={errors} register={register} name="sameAsHome" value={true} />
+                        <CheckBox id={'flexCheck2'} labelClass={'form-check-label'} label={'Same as Home Address'}  register={register} name="sameAsHome" value={true} />
                         <div class="checkout-form-bx checkout-form-bx2">
                             <div class="form-check float-start">
                                 {/* <CheckBox type={"radio"} label='Apartment / Condo / Building' labelFor='Apartment' register={register} value={"Appartment"} name="flexRadioDefault3" /> */}
@@ -174,9 +174,9 @@ export default function UserForm({ register, onSubmit, errors,control }) {
                 <h1>Store Information</h1>
                 <hr/>
                 <Input id="storeName" label='Store Name' req={true} errors={errors}  register={register} name="StoreName" />
-                <Input id="Experience" label='Cooking Experience' errors={errors}  register={register} name="cooking_experience" />
+                <Input id="Experience" label='Cooking Experience' errors={errors}  register={register} placeholder="cooking experiance in years" name="cooking_experience" />
 								<CustomSelect control={control}  options={pcategorey } id="categorey" req={true}  label='product category' errors={errors} register={register} name="preferred_categories" />
-                                <CustomSelect control={control} options={[{ value: "1", label: "Daily" },{ value: "1", label: "Weekly" }, { value: "1", label: "Special Offer" }]} id="promotion" label='promotion type' errors={errors} register={register} name="promotion_type" />
+                                <CustomSelect control={control} options={[{ value: "1", label: "Daily" },{ value: "1", label: "Weekly" }, { value: "1", label: "Special Offer" }]} id="promotion" label='promotion type'  register={register} name="promotion_type" />
 								{/* <CustomSelect control={control} options={promotionCategory } id="promotion" label='promotion type' errors={errors} register={register} name="promotion_type" /> */}
 								{/* <CustomSelect control={control} options={days } id="days" label='Delivery Days' errors={errors} register={register} name="delivery_days" /> */}
 								{/* <CustomSelect control={control} options={slots } id="slots" label='Slots' errors={errors} register={register} name="delivery_days" /> */}
@@ -283,7 +283,7 @@ export default function UserForm({ register, onSubmit, errors,control }) {
                     </div>
                 </div> : ""}
                 <div class="mb-3 row">
-                    <label for="" class="col-sm-3 col-form-label">Delivers<span>*</span></label>
+                    <label for="" class="col-sm-3 col-form-label">Scale<span>*</span></label>
                     <div class="col-sm-9">
                         <div class="checkout-form-bx checkout-form-bx2">
                             <CheckBox type={"radio"} label='Industrial' labelFor='Industrial' errors={errors} value={"Industrial"} register={register} name="delivers2" />
